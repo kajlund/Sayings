@@ -1,0 +1,89 @@
+{
+  "name": "sayings",
+  "version": "1.0.0",
+  "description": "API and app for storing and displaying your favorite proverbs",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index",
+    "lint": "eslint .",
+    "start": "node ./src/index",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "cross-env NODE_ENV=test jest --watchAll"
+  },
+  "keywords": [],
+  "author": "Kaj Lund <kaj.lund@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@lukeed/uuid": "^2.0.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "date-fns": "^2.29.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "helmet": "^6.0.0",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^2.3.0",
+    "nodemailer": "^6.8.0",
+    "pino": "^8.6.1",
+    "pino-http": "^8.2.1",
+    "pino-pretty": "^9.1.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^29.1.2",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1",
+    "sqlite3": "^5.1.2",
+    "supertest": "^6.3.0"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "env": {
+      "commonjs": true,
+      "es6": true,
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "eqeqeq": "warn",
+      "no-console": "warn",
+      "no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "req|res|next|val"
+        }
+      ],
+      "promise/catch-or-return": "off",
+      "prettier/prettier": "warn"
+    }
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2
+  },
+  "jest": {
+    "setupFiles": [
+      "./__test__/jest.setup.js"
+    ],
+    "setupFilesAfterEnv": [
+      "./__test__/toBeUUID.js"
+    ]
+  }
+}
