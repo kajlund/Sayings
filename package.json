@@ -5,6 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon ./src/index",
+    "dev-db:migrate": "cross-env NODE_ENV=development knex --knexfile ./src/db/knexfile.js migrate:latest",
+    "dev-db:rollback": "cross-env NODE_ENV=development knex --knexfile ./src/db/knexfile.js migrate:rollback --all",
+    "dev-db:seed": "cross-env NODE_ENV=development knex --knexfile=./src/db/knexfile.js seed:run",
     "lint": "eslint .",
     "start": "node ./src/index",
     "test": "cross-env NODE_ENV=test jest",
